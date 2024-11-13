@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/NanumSquareRoundB.ttf",
+      "sha1": "e92331df4c26e67374cb41c18d4bdf326db8e53d"
+    },
+    {
+      "path": "src/assets/fonts/NanumSquareRoundEB.ttf",
+      "sha1": "4480112377baeea3de17a1d839da691d978927b7"
+    },
+    {
+      "path": "src/assets/fonts/NanumSquareRoundL.ttf",
+      "sha1": "d5015ab895abdfd00f8a23105552f153cd953afa"
+    },
+    {
+      "path": "src/assets/fonts/NanumSquareRoundR.ttf",
+      "sha1": "f0c70764bea3fab551e1dedaae059d4495afd8db"
+    },
+    {
+      "path": "src/assets/fonts/Yeongdo-Bold.ttf",
+      "sha1": "555b482fb64c4507361d412955af2c037d89fdc8"
+    },
+    {
+      "path": "src/assets/fonts/Yeongdo-Heavy.ttf",
+      "sha1": "9d5d4552b2eae634b434122a07c90ee715fafe35"
+    },
+    {
+      "path": "src/assets/fonts/Yeongdo-Regular.ttf",
+      "sha1": "cbf145d601ad9ca9dc691315ae0f2cb287bf5411"
+    }
+  ]
+}
