@@ -1,9 +1,7 @@
-// CalendarSchedule.tsx
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import { ScrollView } from 'react-native';
 import { Calendar } from 'react-native-calendars';
-import { Picker } from '@react-native-picker/picker';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ScheduleCard from './ScheduleCard';
 
@@ -28,53 +26,68 @@ const CollapseButton = styled.TouchableOpacity`
   z-index: 1;
 `;
 
-const CategoryButtonContainer = styled.View`
+const CategoryDropdownContainer = styled.View`
   position: absolute;
-  left: 21px;
-  width: 150px;
+  left: 7px;
+  width: 130px;
   background-color: #EAF0F8;
   border-radius: 20px;
-  z-index: 1;
+  padding: 0 6px;
+  z-index: 2;
 `;
 
-const ScheduleCardList = styled(ScrollView)`
+const DropdownButton = styled.TouchableOpacity`
+  background-color: #EAF0F8;
+  border-radius: 20px;
+  padding: 6px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const DropdownText = styled.Text`
+  font-size: 14px;
+  color: #000;
+  font-family: 'NanumSquareRound';
+`;
+
+const DropdownList = styled.ScrollView`
+  max-height: 100px;
+  margin-top: 5px;
+`;
+
+const DropdownItem = styled.TouchableOpacity`
+  padding: 6px 10px;
+`;
+
+const DropdownItemText = styled.Text`
+  font-family: 'NanumSquareRound';
+  font-size: 14px;
+  color: #000;
+`;
+
+const ScheduleCardList = styled.ScrollView`
   margin-top: 50px;
   max-height: 300px;
   margin-bottom: 70px;
 `;
 
 export default function CalendarSchedule({ navigation, onDaySelect, onCollapse, calendarExpanded }) {
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState("카테고리 선택");
+  const [dropdownVisible, setDropdownVisible] = useState(false);
 
-  // 임의의 스케줄 데이터
   const schedules = [
-    {
-      id: 1,
-      title: '미팅',
-      date: '2024-11-15',
-      location: '서울역',
-      type: '회의',
-      description: '이것은 수정된 미팅 설명입니다. 수정된 설명이 여기에 표시됩니다.',
-      link: 'https://example.com/meeting'
-    },
-    {
-      id: 2,
-      title: '프로젝트 회의',
-      date: '2024-11-16',
-      location: '강남구청',
-      type: '회의',
-      description: '프로젝트 팀원들과 함께 회의합니다.',
-      link: 'https://example.com/project'
-    },
-    // 다른 스케줄 데이터...
+    { id: 1, title: '미팅', date: '2024-11-15', location: '서울역', type: '회의' },
+    { id: 2, title: '프로젝트 회의', date: '2024-11-16', location: '강남구청', type: '회의' },
   ];
 
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+    setDropdownVisible(false);
+  };
+
   const handleSchedulePress = (schedule) => {
-    if (navigation) {
-      navigation.navigate('ScheduleDetail', { schedule });
-    } else {
-      console.error('Navigation object not found');
-    }
+    navigation && navigation.navigate('ScheduleDetail', { schedule });
   };
 
   return (
@@ -83,19 +96,28 @@ export default function CalendarSchedule({ navigation, onDaySelect, onCollapse, 
         <CalendarWrapper calendarExpanded={calendarExpanded}>
           {calendarExpanded && (
             <>
-              <CategoryButtonContainer>
-                <Picker
-                  selectedValue={selectedCategory}
-                  onValueChange={(itemValue) => setSelectedCategory(itemValue)}
-                  style={{ height: 30, color: '#000' }}
-                >
-                  <Picker.Item label="카테고리 선택" value="all" />
-                  <Picker.Item label="미팅" value="meeting" />
-                  <Picker.Item label="프로젝트" value="project" />
-                  <Picker.Item label="스터디" value="study" />
-                  <Picker.Item label="개발" value="development" />
-                </Picker>
-              </CategoryButtonContainer>
+              <CategoryDropdownContainer>
+                <DropdownButton onPress={() => setDropdownVisible(!dropdownVisible)}>
+                  <DropdownText>{selectedCategory}</DropdownText>
+                  <Ionicons name="chevron-down-outline" size={16} color="#000" />
+                </DropdownButton>
+                {dropdownVisible && (
+                  <DropdownList>
+                    <DropdownItem onPress={() => handleCategorySelect('미팅')}>
+                      <DropdownItemText>미팅</DropdownItemText>
+                    </DropdownItem>
+                    <DropdownItem onPress={() => handleCategorySelect('프로젝트')}>
+                      <DropdownItemText>프로젝트</DropdownItemText>
+                    </DropdownItem>
+                    <DropdownItem onPress={() => handleCategorySelect('스터디')}>
+                      <DropdownItemText>스터디</DropdownItemText>
+                    </DropdownItem>
+                    <DropdownItem onPress={() => handleCategorySelect('개발')}>
+                      <DropdownItemText>개발</DropdownItemText>
+                    </DropdownItem>
+                  </DropdownList>
+                )}
+              </CategoryDropdownContainer>
               <CollapseButton onPress={onCollapse}>
                 <Ionicons name="chevron-up-outline" size={20} color="#000" />
               </CollapseButton>

@@ -1,4 +1,6 @@
 // ScheduleDetailScreen.tsx
+// 스케줄 상세 정보
+
 import React from 'react';
 import { SafeAreaView } from 'react-native';
 import styled from 'styled-components/native';

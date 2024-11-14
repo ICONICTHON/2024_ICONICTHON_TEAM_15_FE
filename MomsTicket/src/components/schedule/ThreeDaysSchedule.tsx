@@ -1,7 +1,10 @@
 // ThreeDaysSchedule.tsx
+// 홈화면에서 어제/오늘/내일 스케줄
+
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 // 임시 데이터
 const schedules = {
@@ -22,16 +25,6 @@ const schedules = {
   ],
 };
 
-// // 날짜 형식 지정
-// const getTodayDate = () => {
-//   const date = new Date();
-//   const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
-//   const month = date.getMonth() + 1;
-//   const day = date.getDate();
-//   const dayOfWeek = dayNames[date.getDay()];
-//   return `${month}월 ${day}일(${dayOfWeek})`;
-// };
-
 const ScheduleContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
@@ -50,8 +43,7 @@ const ScheduleText = styled.TouchableOpacity`
 `;
 
 const ScheduleTextContent = styled.Text`
-  font-family: 'NanumSquareRound';
-  font-weight: ${({ selected }) => (selected ? 800 : 400)};
+  font-family: ${({ selected }) => (selected ? 'NanumSquareRoundEB' : 'NanumSquareRoundB')};
   font-size: 16px;
   color: ${({ selected }) => (selected ? '#000000' : '#898989')};
   background-color: ${({ selected }) => (selected ? '#FFFFFF' : 'transparent')};
@@ -65,7 +57,6 @@ const ScheduleList = styled.View`
 `;
 
 const ScheduleCardContainer = styled.View`
-  position: relative;
   flex-direction: row;
   align-items: center;
   background-color: #F3F8FF;
@@ -77,30 +68,32 @@ const ScheduleCardContainer = styled.View`
 `;
 
 const TimeText = styled.Text`
-  position: absolute;
-  left: 0;
-  font-family: 'NanumSquareRound';
-  font-weight: 700;
+  font-family: 'NanumSquareRoundB';
   font-size: 16px;
   color: #000000;
+  margin-right: 10px;
 `;
 
 const ScheduleInfo = styled.View`
-  margin-left: 92px;
+  flex: 1;
+  margin-left: 20px;
 `;
 
 const TitleText = styled.Text`
-  font-family: 'NanumSquareRound';
-  font-weight: 700;
+  font-family: 'NanumSquareRoundEB';
   font-size: 18px;
   color: #000000;
   margin-bottom: 4px;
 `;
 
 const DetailsText = styled.Text`
-  font-family: 'NanumSquareRound';
+  font-family: 'NanumSquareRoundR';
   font-size: 16px;
   color: #000000;
+`;
+
+const ArrowIcon = styled(MaterialIcons)`
+  color: #BDBDBD;
 `;
 
 const ShowMoreButton = styled.TouchableOpacity`
@@ -163,6 +156,7 @@ function ScheduleCard({ time, title, details }) {
         <TitleText>{title}</TitleText>
         <DetailsText>{details}</DetailsText>
       </ScheduleInfo>
+      <ArrowIcon name="keyboard-arrow-right" size={24} /> {/* 아이콘 추가 */}
     </ScheduleCardContainer>
   );
 }

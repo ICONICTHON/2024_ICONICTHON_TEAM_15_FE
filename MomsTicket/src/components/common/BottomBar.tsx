@@ -1,14 +1,16 @@
 // BottomBar.tsx
-import React from 'react';
+// 하단 네비게이션 바
+
+import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, CommonActions } from '@react-navigation/native';
 
 const BottomBarContainer = styled.View`
   position: absolute;
   bottom: 0;
-  width: 414px;
+  width: 100%;
   height: 80px;
   background: #FFFFFF;
   border-radius: 10px 10px 0 0;
@@ -17,7 +19,6 @@ const BottomBarContainer = styled.View`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  border-top-radius: 100px;
 `;
 
 const Tab = styled.TouchableOpacity`
@@ -26,36 +27,45 @@ const Tab = styled.TouchableOpacity`
 `;
 
 const TabText = styled.Text`
-  font-family: 'NanumSquareRound';
-  font-weight: 700;
-  font-size: 16px;
-  color: #000000;
+  font-family: 'NanumSquareRoundEB';
+  font-size: 18px;
+  color: ${({ isSelected }) => (isSelected ? '#3E95FF' : '#000000')};
 `;
 
 export default function BottomBar() {
   const navigation = useNavigation();
+  const [selectedTab, setSelectedTab] = useState("Home");
+
+  const handlePress = (screenName) => {
+    setSelectedTab(screenName);
+    navigation.dispatch(
+      CommonActions.navigate({
+        name: screenName,
+      })
+    );
+  };
 
   return (
     <BottomBarContainer>
-      <Tab>
-        <Ionicons name="ticket-outline" size={32} color="#000" />
-        <TabText>티켓</TabText>
+      <Tab onPress={() => handlePress("Tickets")}>
+        <Ionicons name="ticket-outline" size={32} color={selectedTab === "Tickets" ? "#3E95FF" : "#000"} />
+        <TabText isSelected={selectedTab === "Tickets"}>티켓</TabText>
       </Tab>
-      <Tab>
-        <Ionicons name="people-outline" size={32} color="#000" />
-        <TabText>동행</TabText>
+      <Tab onPress={() => handlePress("Companion")}>
+        <Ionicons name="people-outline" size={32} color={selectedTab === "Companion" ? "#3E95FF" : "#000"} />
+        <TabText isSelected={selectedTab === "Companion"}>동행</TabText>
       </Tab>
-      <Tab onPress={() => navigation.navigate('HomeScreen')}>
-        <AntDesign name="home" size={32} color="#000" />
-        <TabText>홈</TabText>
+      <Tab onPress={() => handlePress("Home")}>
+        <AntDesign name="home" size={32} color={selectedTab === "Home" ? "#3E95FF" : "#000"} />
+        <TabText isSelected={selectedTab === "Home"}>홈</TabText>
       </Tab>
-      <Tab>
-        <Ionicons name="chatbubble-outline" size={32} color="#000" />
-        <TabText>채팅</TabText>
+      <Tab onPress={() => handlePress("Chat")}>
+        <Ionicons name="chatbubble-outline" size={32} color={selectedTab === "Chat" ? "#3E95FF" : "#000"} />
+        <TabText isSelected={selectedTab === "Chat"}>채팅</TabText>
       </Tab>
-      <Tab>
-        <Ionicons name="person-circle-outline" size={32} color="#000" />
-        <TabText>내정보</TabText>
+      <Tab onPress={() => handlePress("Profile")}>
+        <Ionicons name="person-circle-outline" size={32} color={selectedTab === "Profile" ? "#3E95FF" : "#000"} />
+        <TabText isSelected={selectedTab === "Profile"}>내정보</TabText>
       </Tab>
     </BottomBarContainer>
   );

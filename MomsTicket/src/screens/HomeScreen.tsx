@@ -1,4 +1,6 @@
 // HomeScreen.tsx
+// 홈화면
+
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';

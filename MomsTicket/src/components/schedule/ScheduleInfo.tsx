@@ -1,3 +1,6 @@
+// ScheduleInfo.tsx
+// 스케줄 상세 정보
+
 import React from 'react';
 import styled from 'styled-components/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -20,8 +23,7 @@ const ScheduleType = styled.Text`
   height: 16px;
   left: 48px;
   top: 59px;
-  font-family: 'NanumSquareRoundB';
-  font-weight: 400;
+  font-family: 'NanumSquareRoundR';
   font-size: 14px;
   line-height: 16px;
   color: #1FA7DB;
@@ -39,7 +41,6 @@ const TitleContainer = styled.View`
 
 const ScheduleTitle = styled.Text`
   font-family: 'NanumSquareRoundB';
-  font-weight: 700;
   font-size: 20px;
   line-height: 23px;
   color: #000000;
@@ -66,7 +67,6 @@ const DateContainer = styled.View`
 
 const DateText = styled.Text`
   font-family: 'NanumSquareRoundB';
-  font-weight: 700;
   font-size: 16px;
   color: #000000;
   margin-left: 10px;
@@ -84,7 +84,6 @@ const LocationContainer = styled.View`
 
 const LocationText = styled.Text`
   font-family: 'NanumSquareRoundB';
-  font-weight: 700;
   font-size: 16px;
   color: #000000;
   margin-left: 10px;
@@ -109,7 +108,6 @@ const Button = styled.TouchableOpacity`
 
 const ButtonText = styled.Text`
   font-family: 'NanumSquareRoundB';
-  font-weight: 700;
   font-size: 16px;
   color: #1FA7DB;
 `;
@@ -127,15 +125,15 @@ const LinkButton = styled.TouchableOpacity`
 `;
 
 const LinkButtonText = styled.Text`
-  font-family: 'NanumSquareRoundB';
+  font-family: 'NanumSquareRoundEB';
   color: #FFFFFF;
-  font-size: 16px;
+  font-size: 18px;
 `;
 
 const DescriptionText = styled.Text`
   margin-top: 390px;
   padding: 30px;
-  font-family: 'NanumSquareRoundB';
+  font-family: 'NanumSquareRoundR';
   font-size: 16px;
   line-height: 24px;
   color: #333333;
