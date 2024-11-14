@@ -1,9 +1,27 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import { ScrollView } from 'react-native';
-import { Calendar } from 'react-native-calendars';
+import { Calendar, LocaleConfig } from 'react-native-calendars';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ScheduleCard from './ScheduleCard';
+
+// Locale 설정
+LocaleConfig.locales['kr'] = {
+  monthNames: [
+    '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'
+  ],
+  monthNamesShort: [
+    '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'
+  ],
+  dayNames: [
+    '일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'
+  ],
+  dayNamesShort: [
+    '일', '월', '화', '수', '목', '금', '토'
+  ],
+  today: '오늘'
+};
+LocaleConfig.defaultLocale = 'kr';
 
 const WhiteRectangle = styled.View`
   width: 100%;
@@ -124,7 +142,8 @@ export default function CalendarSchedule({ navigation, onDaySelect, onCollapse, 
             </>
           )}
           <Calendar
-            current={'2024-11-01'}
+            current={'2024-11-15'}
+            monthFormat={'yyyy년 MM월'}
             markedDates={{
               '2024-11-15': { selected: true, marked: true, selectedColor: '#3E95FF' },
               '2024-11-20': { marked: true, dotColor: '#3E95FF' },

@@ -1,4 +1,3 @@
-// BottomBar.tsx
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -37,14 +36,28 @@ export default function BottomBar() {
   const handlePress = (screenName) => {
     setSelectedTab(screenName);
 
-    navigation.dispatch(
-      CommonActions.navigate({
-        name: "Main", // 최상위 네비게이터
-        params: {
-          screen: screenName, // 중첩된 네비게이터 경로 지정
-        },
-      })
-    );
+    if (screenName === "Home") {
+      // Main 네비게이터 안의 HomeStack에 있는 HomeScreen으로 이동하도록 설정
+      navigation.dispatch(
+        CommonActions.navigate({
+          name: "Main",
+          params: {
+            screen: "Home",
+            params: { screen: "HomeScreen" },
+          },
+        })
+      );
+    } else {
+      // 다른 화면 이동을 위한 설정
+      navigation.dispatch(
+        CommonActions.navigate({
+          name: "Main",
+          params: {
+            screen: screenName,
+          },
+        })
+      );
+    }
   };
 
   return (

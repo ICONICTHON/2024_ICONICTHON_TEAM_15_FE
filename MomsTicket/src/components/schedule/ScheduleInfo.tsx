@@ -49,11 +49,11 @@ const ScheduleTitle = styled.Text`
 
 const Line = styled.View`
   position: absolute;
-  width: 354.01px;
+  width: 330px;
   height: 0px;
-  left: 25px;
+  left: 40px;
   top: 120px;
-  border: 0.4px solid #000000;
+  border: 0.5px solid #000000;
 `;
 
 const DateContainer = styled.View`

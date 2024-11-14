@@ -41,9 +41,8 @@ const ToggleButton = styled(TouchableOpacity)<{ selected: boolean }>`
 `;
 
 const ToggleText = styled.Text<{ selected: boolean }>`
-  font-family: 'NanumSquareRound';
+  font-family: 'NanumSquareRoundB';
   font-size: 16px;
-  font-weight: 700;
   color: ${(props) => (props.selected ? '#ffffff' : '#727272')};
 `;
 
@@ -89,6 +88,7 @@ export default function TicketScreen() {
         <View>
           <CalendarContainer>
             <Calendar
+              monthFormat={'yyyy년 MM월'}
               onDayPress={(day) => {
                 console.log('selected day', day);
               }}
