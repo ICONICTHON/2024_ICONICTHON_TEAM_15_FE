@@ -84,6 +84,9 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        // 네이티브 앱 키 설정
+        manifestPlaceholders = [KAKAO_NATIVE_APP_KEY: "${System.getenv("KAKAO_NATIVE_APP_KEY")}"]
+        buildConfigField "String", "KAKAO_NATIVE_APP_KEY", "\"${System.getenv("KAKAO_NATIVE_APP_KEY")}\""
     }
     signingConfigs {
         debug {

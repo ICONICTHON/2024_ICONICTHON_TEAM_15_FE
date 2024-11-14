@@ -9,13 +9,21 @@ buildscript {
     }
     repositories {
         google()
+        // 추가 할지 말지
+        maven { url 'https://www.jitpack.io' }
+        // 카카오 로그인
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
+        //classpath("com.android.tools.build:gradle")
+        classpath("com.android.tools.build:gradle:7.0.2")
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+
+
     }
 }
+
 
 apply plugin: "com.facebook.react.rootproject"

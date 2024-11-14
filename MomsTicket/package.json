@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
+    "@react-native-seoul/kakao-login": "^5.4.1",
     "@react-navigation/bottom-tabs": "^7.0.1",
     "@react-navigation/native": "^7.0.0",
     "@react-navigation/native-stack": "^7.0.0",
@@ -18,11 +19,13 @@
     "@types/styled-components-react-native": "^5.2.5",
     "react": "18.3.1",
     "react-native": "0.76.1",
+    "react-native-dotenv": "^3.4.11",
     "react-native-gesture-handler": "^2.20.2",
     "react-native-reanimated": "^3.16.1",
     "react-native-safe-area-context": "^4.14.0",
     "react-native-screens": "^4.0.0",
     "react-native-vector-icons": "^10.2.0",
+    "react-native-webview": "^13.12.3",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
@@ -47,5 +50,6 @@
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
 }
