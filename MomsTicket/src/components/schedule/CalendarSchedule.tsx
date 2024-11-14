@@ -77,8 +77,8 @@ export default function CalendarSchedule({ navigation, onDaySelect, onCollapse, 
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
   const schedules = [
-    { id: 1, title: '미팅', date: '2024-11-15', location: '서울역', type: '회의' },
-    { id: 2, title: '프로젝트 회의', date: '2024-11-16', location: '강남구청', type: '회의' },
+    { id: 1, title: '미팅', date: '2024-11-15', location: '서울역', type: '회의', description: '안녕하세요?' },
+    { id: 2, title: '프로젝트 회의', date: '2024-11-16', location: '강남구청', type: '회의', description: '안녕하세요?' },
   ];
 
   const handleCategorySelect = (category) => {

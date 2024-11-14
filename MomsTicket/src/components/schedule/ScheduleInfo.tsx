@@ -6,6 +6,7 @@ import styled from 'styled-components/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { Linking } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const BackgroundRectangle = styled.View`
   position: absolute;
@@ -20,7 +21,7 @@ const BackgroundRectangle = styled.View`
 const ScheduleType = styled.Text`
   position: absolute;
   width: 68px;
-  height: 16px;
+      height: 16px;
   left: 48px;
   top: 59px;
   font-family: 'NanumSquareRoundR';
@@ -140,6 +141,8 @@ const DescriptionText = styled.Text`
 `;
 
 export default function ScheduleInfo({ title, date, location, type, description, link }) {
+  const navigation = useNavigation();
+
   const handleLinkPress = () => {
     if (link) {
       Linking.openURL(link).catch(err => console.error("Couldn't load page", err));
@@ -166,11 +169,11 @@ export default function ScheduleInfo({ title, date, location, type, description,
         <LocationText>{location}</LocationText>
       </LocationContainer>
       <ButtonContainer>
-        <Button>
-          <ButtonText>동행</ButtonText>
+        <Button onPress={() => navigation.navigate('FindTicketAgent', { schedule: { title, date, location, type, description, link } })}>
+          <ButtonText>티켓팅 대리 구하기</ButtonText>
         </Button>
         <Button>
-          <ButtonText>티켓팅 대리 구하기</ButtonText>
+          <ButtonText>동행</ButtonText>
         </Button>
       </ButtonContainer>
       <DescriptionText>{description}</DescriptionText>
