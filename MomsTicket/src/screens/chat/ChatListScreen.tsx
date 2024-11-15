@@ -10,7 +10,7 @@ const mockData = [
     title: '아임히어로 같이가요~',
     lastMessage: '안녕하세요!! 잘 부탁 드립니다.',
     schedule: '1/17~19 IM HERO - THE STADIUM 콘서트',
-    unreadCount: 4,
+    unreadCount: 0,
   },
   {
     id: '2',

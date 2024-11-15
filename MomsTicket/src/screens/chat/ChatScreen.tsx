@@ -145,7 +145,7 @@ const ChatScreen = () => {
     {
       id: '1',
       sender: '닉네임1',
-      message: '안녕하세요 잘 부탁 드립니다~~!!! 아임히어로 같이 가요 ><',
+      message: '안녕하세요!! 잘 부탁 드립니다. 아임히어로 같이 가요 ><',
       time: '오전 12:39',
       isSentByUser: false,
     },
@@ -181,7 +181,7 @@ const ChatScreen = () => {
         <TouchableOpacity onPress={() => navigation.goBack()}> {/* 뒤로 가기 기능 */}
           <Icon name="arrow-left" size={30} color="#000" />
         </TouchableOpacity>
-        <HeaderTitle>채팅방 이름</HeaderTitle>
+        <HeaderTitle>아임히어로 같이가요~</HeaderTitle>
       </Header>
 
       <DateContainer>

@@ -62,6 +62,10 @@ export default function BottomBar() {
 
   return (
     <BottomBarContainer>
+      <Tab onPress={() => handlePress("Home")}>
+        <AntDesign name="home" size={32} color={selectedTab === "Home" ? "#3E95FF" : "#000"} />
+        <TabText isSelected={selectedTab === "Home"}>홈</TabText>
+      </Tab>
       <Tab onPress={() => handlePress("Tickets")}>
         <Ionicons name="ticket-outline" size={32} color={selectedTab === "Tickets" ? "#3E95FF" : "#000"} />
         <TabText isSelected={selectedTab === "Tickets"}>티켓</TabText>
@@ -70,10 +74,6 @@ export default function BottomBar() {
         <Ionicons name="people-outline" size={32} color={selectedTab === "Companion" ? "#3E95FF" : "#000"} />
         <TabText isSelected={selectedTab === "Companion"}>동행</TabText>
       </Tab>*/}
-      <Tab onPress={() => handlePress("Home")}>
-        <AntDesign name="home" size={32} color={selectedTab === "Home" ? "#3E95FF" : "#000"} />
-        <TabText isSelected={selectedTab === "Home"}>홈</TabText>
-      </Tab>
       <Tab onPress={() => handlePress("Chat")}>
         <Ionicons name="chatbubble-outline" size={32} color={selectedTab === "Chat" ? "#3E95FF" : "#000"} />
         <TabText isSelected={selectedTab === "Chat"}>채팅</TabText>
