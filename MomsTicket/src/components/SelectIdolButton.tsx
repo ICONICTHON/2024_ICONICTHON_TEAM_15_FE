@@ -15,9 +15,9 @@ export default function SelectIdolButton({ onPress, text, image, height = '90%',
             style={[styles.button, { width, height }]}
             onPress={() => onPress(text)}
         >
-            <Text>{text}</Text>
+            <Text style={styles.buttonText}>{text}</Text>
             {image && (
-                <Image source={image} style={[styles.buttonImage, { width, height }]} />
+                <Image source={image} style={[styles.buttonImage, { height: '100%', width: '100%' }]} />
             )}
         </TouchableOpacity>
     );
@@ -28,11 +28,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        mergin: 0,
+        margin: 0,
         borderRadius: 8,
+        backgroundColor: '#f0f0f0',
+        padding: 10,
+    },
+    buttonText: {
+        fontSize: 16,
+        marginRight: 10,
     },
     buttonImage: {
-        marginRight: 0,
-        merginTop: 0,
+        resizeMode: 'contain',
     },
 });
