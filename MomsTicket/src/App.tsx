@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -9,7 +10,9 @@ import ScheduleDetailScreen from './screens/ScheduleDetailScreen';
 import FindTicketAgentScreen from './screens/ticketing/FindTicketAgentScreen';
 import MatchTicketAgentScreen from './screens/ticketing/MatchTicketAgentScreen';
 import TicketScreen from './screens/ticketing/TicketScreen';
-
+import IdolSelectionScreen from './screens/ChooseIdolSlideScreen.tsx';
+import MyIdolChooseScreen from './screens/ChooseIdolScreen.tsx';
+        
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -22,6 +25,16 @@ const MainTabs = () => {
   );
 };
 
+const ChooseTabs = () =>{
+    return(
+         <Stack.Navigator screenOptions={{headerShown:false}}>
+         <Stack.Screen name="Slide" component={IdolSelectionScreen}/>
+         <Stack.Screen name="Choose" component={MyIdolChooseScreen}/>
+        </Stack.Navigator>
+      );
+    };
+  
+
 const HomeStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -33,6 +46,7 @@ const HomeStack = () => {
   );
 };
 
+  
 const TicketStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
