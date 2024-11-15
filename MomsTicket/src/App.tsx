@@ -13,6 +13,7 @@ import IdolSelectionScreen from './screens/ChooseIdolSlideScreen.tsx';
 import MyIdolChooseScreen from './screens/ChooseIdolScreen.tsx';
 import ChatListScreen from './screens/chat/ChatListScreen';
 import ChatScreen from './screens/chat/ChatScreen';
+import MyPageScreen from './screens/MyPageScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -23,6 +24,7 @@ const MainTabs = () => {
       <Tab.Screen name="Home" component={HomeStack} options={{ headerShown: false }} />
       <Tab.Screen name="Tickets" component={TicketStack} options={{ headerShown: false }} />
       <Tab.Screen name="Chat" component={ChatStack} options={{ headerShown: false }} />
+       <Tab.Screen name="Profile" component={ProfileStack} options={{ headerShown: false }} />
     </Tab.Navigator>
   );
 };
@@ -60,6 +62,14 @@ const ChatStack = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="ChatListScreen" component={ChatListScreen} />
       <Stack.Screen name="ChatScreen" component={ChatScreen} />
+    </Stack.Navigator>
+  );
+};
+
+const ProfileStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="MyPageScreen" component={MyPageScreen} />
     </Stack.Navigator>
   );
 };
